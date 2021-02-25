@@ -3,6 +3,6 @@ import { UserDto } from 'src/user/dto/user.dto';
 export declare class UserController {
     private usersService;
     constructor(usersService: UserService);
-    create(user: UserDto): UserDto;
-    findAll(): UserDto[];
+    create(user: UserDto): Promise<UserDto>;
+    findAll(): Promise<UserDto[]>;
 }

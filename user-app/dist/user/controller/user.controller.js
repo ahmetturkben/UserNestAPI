@@ -32,13 +32,13 @@ __decorate([
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_dto_1.UserDto]),
-    __metadata("design:returntype", user_dto_1.UserDto)
+    __metadata("design:returntype", Promise)
 ], UserController.prototype, "create", null);
 __decorate([
     common_1.Get(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Array)
+    __metadata("design:returntype", Promise)
 ], UserController.prototype, "findAll", null);
 UserController = __decorate([
     common_1.Controller('users'),
