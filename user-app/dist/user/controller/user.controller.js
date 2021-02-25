@@ -26,6 +26,12 @@ let UserController = class UserController {
     findAll() {
         return this.usersService.getAll();
     }
+    findOne(id) {
+        return this.usersService.getById(id);
+    }
+    update(id, userDto) {
+        return this.usersService.update(id, userDto);
+    }
 };
 __decorate([
     common_1.Post(),
@@ -40,6 +46,20 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findAll", null);
+__decorate([
+    common_1.Get(':id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "findOne", null);
+__decorate([
+    common_1.Put(':id'),
+    __param(0, common_1.Param('id')), __param(1, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, user_dto_1.UserDto]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "update", null);
 UserController = __decorate([
     common_1.Controller('users'),
     __metadata("design:paramtypes", [user_service_1.UserService])

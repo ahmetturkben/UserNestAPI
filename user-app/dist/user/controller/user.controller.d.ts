@@ -5,4 +5,6 @@ export declare class UserController {
     constructor(usersService: UserService);
     create(user: UserDto): Promise<UserDto>;
     findAll(): Promise<UserDto[]>;
+    findOne(id: number): Promise<UserDto>;
+    update(id: number, userDto: UserDto): Promise<import("typeorm").UpdateResult>;
 }

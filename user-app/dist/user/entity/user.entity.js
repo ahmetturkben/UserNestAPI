@@ -34,7 +34,7 @@ __decorate([
     __metadata("design:type", String)
 ], UserEntity.prototype, "tcno", void 0);
 UserEntity = __decorate([
-    typeorm_1.Entity()
+    typeorm_1.Entity("user")
 ], UserEntity);
 exports.UserEntity = UserEntity;
 //# sourceMappingURL=user.entity.js.map

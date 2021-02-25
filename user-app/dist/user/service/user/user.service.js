@@ -28,6 +28,12 @@ let UserService = class UserService {
     getAll() {
         return this.userRepository.find();
     }
+    getById(id) {
+        return this.userRepository.findOne({ id });
+    }
+    update(id, user) {
+        return this.userRepository.update(id, { surname: user.surname, name: user.name, tcno: user.tcno, email: user.email });
+    }
 };
 UserService = __decorate([
     common_1.Injectable(),

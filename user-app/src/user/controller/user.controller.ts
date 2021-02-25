@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Param } from '@nestjs/common';
 import { UserService } from '../service/user/user.service';
 import { UserDto } from 'src/user/dto/user.dto';
 
@@ -16,4 +16,14 @@ export class UserController {
     findAll(): Promise<UserDto[]>{
         return this.usersService.getAll();
     }
+
+    @Get(':id')
+    findOne(@Param('id') id: number): Promise<UserDto>{
+        return this.usersService.getById(id);
+    }
+
+    @Put(':id')
+    update(@Param('id') id: number, @Body() userDto: UserDto) {
+        return this.usersService.update(id, userDto);
+  }
 }
