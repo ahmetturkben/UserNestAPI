@@ -24,6 +24,6 @@ export class UserService {
     }
 
     update(id: number, user: UserDto): Promise<UpdateResult>{
-        return this.userRepository.update(id, { surname: user.surname, name: user.name, tcno: user.tcno, email: user.email });
+        return this.userRepository.update(id, user); // or return this.userRepository.update(id, { surname: user.surname, name: user.name, tcno: user.tcno, email: user.email });
     }
 }
