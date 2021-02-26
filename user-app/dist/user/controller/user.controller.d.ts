@@ -6,6 +6,7 @@ export declare class UserController {
     create(user: UserDto): Promise<UserDto>;
     findAll(): Promise<UserDto[]>;
     findOne(id: number): Promise<UserDto>;
+    filterAll(userFilter: any): Promise<UserDto[]>;
     update(id: number, userDto: UserDto): Promise<import("typeorm").UpdateResult>;
     delete(id: number): Promise<import("typeorm").DeleteResult>;
 }

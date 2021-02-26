@@ -18,6 +18,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const user_dto_1 = require("../../dto/user.dto");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./../../entity/user.entity");
+const filter_user_dto_1 = require("../../dto/filter-user.dto");
 let UserService = class UserService {
     constructor(userRepository) {
         this.userRepository = userRepository;
@@ -27,6 +28,19 @@ let UserService = class UserService {
     }
     getAll() {
         return this.userRepository.find();
+    }
+    filterAll(user) {
+        console.log(user);
+        var result = this.userRepository.find({
+            where: [
+                { name: typeorm_2.Raw(alias => `${alias} IN (:...name)`, { name: user.names }) },
+                { surname: typeorm_2.Raw(alias => `${alias} IN (:...surname)`, { surname: user.surnames }) },
+                { email: typeorm_2.Raw(alias => `${alias} IN (:...email)`, { email: user.emails }) },
+                { tcno: typeorm_2.Raw(alias => `${alias} IN (:...tcno)`, { tcno: user.tcnos }) }
+            ]
+        });
+        console.log(result);
+        return result;
     }
     getById(id) {
         return this.userRepository.findOne({ id });

@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserDto } from "src/user/dto/user.dto"
-import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult, Raw } from 'typeorm';
 import { UserEntity } from './../../entity/user.entity';
+import { FilterUserDto } from 'src/user/dto/filter-user.dto';
 
 @Injectable()
 export class UserService {
@@ -17,6 +18,20 @@ export class UserService {
 
     getAll(): Promise<UserDto[]> {
         return this.userRepository.find();
+    }
+
+    filterAll(user: FilterUserDto): Promise<UserDto[]>{
+        console.log(user);
+        var result = this.userRepository.find({
+            where: [
+              { name: Raw(alias =>`${alias} IN (:...name)`, { name: user.names })},
+              { surname: Raw(alias =>`${alias} IN (:...surname)`, { surname: user.surnames })},
+              { email: Raw(alias =>`${alias} IN (:...email)`, { email: user.emails })},
+              { tcno: Raw(alias =>`${alias} IN (:...tcno)`, { tcno: user.tcnos })}
+            ]
+          });
+          console.log(result)
+          return result;
     }
 
     getById(id: number): Promise<UserDto> {

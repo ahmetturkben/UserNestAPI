@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post, Put, Param, Delete } from '@nestjs/common';
 import { UserService } from '../service/user/user.service';
 import { UserDto } from 'src/user/dto/user.dto';
+import { FilterUserDto } from 'src/user/dto/filter-user.dto';
 
 
 @Controller('users')
@@ -20,6 +21,17 @@ export class UserController {
     @Get(':id')
     findOne(@Param('id') id: number): Promise<UserDto>{
         return this.usersService.getById(id);
+    }
+
+    @Get('/filter/:names/:surnames/:emails/:tcnos')
+    filterAll(@Param() userFilter): Promise<UserDto[]>{
+        var obj = new FilterUserDto()
+        obj.emails = userFilter.emails.split(',');
+        obj.names = userFilter.names.split(',');
+        obj.surnames = userFilter.surnames.split(',');
+        obj.tcnos = userFilter.tcnos.split(',');
+
+        return this.usersService.filterAll(obj);
     }
 
     @Put(':id')

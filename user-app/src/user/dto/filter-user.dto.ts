@@ -1,11 +1,6 @@
 import { IsBoolean, IsNumber, IsString, IsOptional, IsArray, ValidateNested } from "class-validator";
 
 export class FilterUserDto {
-    @IsNumber({}, { each: true })
-    @IsOptional()
-    @IsArray()
-    ids?: number[];
-
     @IsString({ each: true })
     @IsOptional()
     @IsArray()

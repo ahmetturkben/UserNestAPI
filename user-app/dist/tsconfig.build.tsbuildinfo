@@ -3481,14 +3481,19 @@
         "signature": "17dbc8779381f85f993eb0d42c87cca804d0669ea16d110b8d7f56780dc79ede",
         "affectsGlobalScope": false
       },
+      "../src/user/dto/filter-user.dto.ts": {
+        "version": "7996c324a8f75105d6d5b72d6cdf35727f0f556ea00120d47fa2a9fea799387c",
+        "signature": "cc3cf774a296bec3a9387696978307d79962a7dd6dcd329779263e2b4947351a",
+        "affectsGlobalScope": false
+      },
       "../src/user/service/user/user.service.ts": {
-        "version": "0ed550be7db874041ce8a3b0b5b59c49b0a8de0bc355a1ca656debe4b2e6c9b3",
-        "signature": "b8804aee5c86e0276099cf5874513ca029cf805e43821ab7649487e184dd8cb7",
+        "version": "2d401d8176ba8a30cc6430466387f48ad24fe2c4d2ec0393275ed0a498b3ff31",
+        "signature": "b73d2774dea99c924c1da0dacf9ad16455d3968b0330bc24a13a78972ebbb56c",
         "affectsGlobalScope": false
       },
       "../src/user/controller/user.controller.ts": {
-        "version": "0d5988395ac18d36b3bf5bf71a1d19f347a3dea521cdc9d004e0100895ddb779",
-        "signature": "9a3c5765dd1aa8ed57d570853db554faa48946c640c26babf3c09441d41a5a3b",
+        "version": "2ed67679940b52417c831d8fd703114d7212d8adde589f09fdb4baca3399d133",
+        "signature": "4c0cf1a398d62ac275e28bc63bdf0f9202ccb3581f2a99980a8a9bf41735467a",
         "affectsGlobalScope": false
       },
       "../src/user/user.module.ts": {
@@ -7361,8 +7366,12 @@
       ],
       "../src/user/controller/user.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../src/user/dto/filter-user.dto.ts",
         "../src/user/dto/user.dto.ts",
         "../src/user/service/user/user.service.ts"
+      ],
+      "../src/user/dto/filter-user.dto.ts": [
+        "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/user/dto/user.dto.ts": [
         "../node_modules/class-validator/types/index.d.ts"
@@ -7374,6 +7383,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/user/dto/filter-user.dto.ts",
         "../src/user/dto/user.dto.ts",
         "../src/user/entity/user.entity.ts"
       ],
@@ -10490,6 +10500,7 @@
       ],
       "../src/user/service/user/user.service.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/user/dto/filter-user.dto.ts",
         "../src/user/dto/user.dto.ts",
         "../src/user/entity/user.entity.ts"
       ]
