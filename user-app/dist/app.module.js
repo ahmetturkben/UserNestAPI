@@ -12,11 +12,15 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const user_module_1 = require("./user/user.module");
 const typeorm_1 = require("@nestjs/typeorm");
+const config_1 = require("@nestjs/config");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
+            config_1.ConfigModule.forRoot({
+                envFilePath: ['.stage.env'],
+            }),
             typeorm_1.TypeOrmModule.forRoot(),
             user_module_1.UserModule
         ],

@@ -1,5 +1,5 @@
 import { UserService } from '../service/user/user.service';
-import { UserDto } from 'src/user/dto/user.dto';
+import { UserDto } from '../dto/user.dto';
 export declare class UserController {
     private usersService;
     constructor(usersService: UserService);
