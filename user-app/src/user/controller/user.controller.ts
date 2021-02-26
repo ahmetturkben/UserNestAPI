@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Put, Param, Delete } from '@nestjs/common';
 import { UserService } from '../service/user/user.service';
-import { UserDto } from 'src/user/dto/user.dto';
-import { FilterUserDto } from 'src/user/dto/filter-user.dto';
+import { UserDto } from '../dto/user.dto'; //src/user/dto/user.dto  path leri böyle vermemeliyiz. unit testlerimizgibi  fail alabiliriz.
+import { FilterUserDto } from '../dto/filter-user.dto';
 
 
 @Controller('users')
