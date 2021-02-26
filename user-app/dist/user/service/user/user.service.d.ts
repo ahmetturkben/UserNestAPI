@@ -1,5 +1,5 @@
 import { UserDto } from "src/user/dto/user.dto";
-import { Repository, UpdateResult } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { UserEntity } from './../../entity/user.entity';
 export declare class UserService {
     private userRepository;
@@ -8,4 +8,5 @@ export declare class UserService {
     getAll(): Promise<UserDto[]>;
     getById(id: number): Promise<UserDto>;
     update(id: number, user: UserDto): Promise<UpdateResult>;
+    delete(id: number): Promise<DeleteResult>;
 }

@@ -16,4 +16,7 @@ export class UserEntity {
 
     @Column({name: "tcno", nullable: false})
     tcno: string;
+
+    @Column({ nullable: false })
+    isDeleted: boolean;
 }

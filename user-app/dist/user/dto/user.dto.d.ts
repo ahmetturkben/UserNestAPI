@@ -4,4 +4,5 @@ export declare class UserDto {
     surname: string;
     email: string;
     tcno: string;
+    isDeleted: boolean;
 }

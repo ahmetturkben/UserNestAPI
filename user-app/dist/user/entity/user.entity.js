@@ -33,6 +33,10 @@ __decorate([
     typeorm_1.Column({ name: "tcno", nullable: false }),
     __metadata("design:type", String)
 ], UserEntity.prototype, "tcno", void 0);
+__decorate([
+    typeorm_1.Column({ nullable: false }),
+    __metadata("design:type", Boolean)
+], UserEntity.prototype, "isDeleted", void 0);
 UserEntity = __decorate([
     typeorm_1.Entity("user")
 ], UserEntity);

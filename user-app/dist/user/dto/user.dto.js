@@ -33,5 +33,9 @@ __decorate([
     class_validator_1.IsString(),
     __metadata("design:type", String)
 ], UserDto.prototype, "tcno", void 0);
+__decorate([
+    class_validator_1.IsBoolean(),
+    __metadata("design:type", Boolean)
+], UserDto.prototype, "isDeleted", void 0);
 exports.UserDto = UserDto;
 //# sourceMappingURL=user.dto.js.map

@@ -34,6 +34,9 @@ let UserService = class UserService {
     update(id, user) {
         return this.userRepository.update(id, user);
     }
+    delete(id) {
+        return this.userRepository.update(id, { isDeleted: true });
+    }
 };
 UserService = __decorate([
     common_1.Injectable(),
