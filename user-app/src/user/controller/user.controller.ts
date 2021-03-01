@@ -37,16 +37,17 @@ export class UserController {
         return this.usersService.getById(id);
     }
 
-    @Get('/filter/:names/:surnames/:emails/:tcnos')
-    filterAll(@Param() userFilter): Promise<UserDto[]>{
-        var obj = new FilterUserDto()
-        obj.emails = userFilter.emails.split(',');
-        obj.names = userFilter.names.split(',');
-        obj.surnames = userFilter.surnames.split(',');
-        obj.tcnos = userFilter.tcnos.split(',');
+    //userfilterController added.
+    // @Get('/filter/:names/:surnames/:emails/:tcnos')
+    // filterAll(@Param() userFilter): Promise<UserDto[]>{
+    //     var obj = new FilterUserDto()
+    //     obj.emails = userFilter.emails.split(',');
+    //     obj.names = userFilter.names.split(',');
+    //     obj.surnames = userFilter.surnames.split(',');
+    //     obj.tcnos = userFilter.tcnos.split(',');
 
-        return this.usersService.filterAll(obj);
-    }
+    //     return this.usersService.filterAll(obj);
+    // }
 
     @Put(':id')
     update(@Param('id') id: number, @Body() userDto: UserDto) {

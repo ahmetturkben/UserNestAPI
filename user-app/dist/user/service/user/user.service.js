@@ -31,6 +31,7 @@ let UserService = class UserService {
     }
     filterAll(user) {
         console.log(user);
+        console.log(user.names);
         var result = this.userRepository.find({
             where: [
                 { name: typeorm_2.Raw(alias => `${alias} IN (:...name)`, { name: user.names }) },

@@ -3487,7 +3487,7 @@
         "affectsGlobalScope": false
       },
       "../src/user/service/user/user.service.ts": {
-        "version": "25677aacc3c5586d1d873b95a4378deb83084002fcc3efa1ce76b90151cb46f1",
+        "version": "7b4667e955682e31d2adf1ed575bfd8a3ef3ecc2cae6c18246bc8cc6b71e574c",
         "signature": "e045d220f4ed4bae21d86c2e679aff647e81035f61f4a3cffc59c23202ae5004",
         "affectsGlobalScope": false
       },
@@ -3496,8 +3496,13 @@
         "signature": "f16165826516146e249d80bf6dcee1c6366d3ccfbc93ff706c3d790d6d9b30a1",
         "affectsGlobalScope": false
       },
+      "../src/user/controller/userfilter/userfilter.controller.ts": {
+        "version": "7e00064787e49aa74c6bed5012c56734a91453c433efc80916f2ce917e808479",
+        "signature": "dc645dbf6a42b50f2af84e80685b3829e3de1d1c1d22634d7b843d093701230b",
+        "affectsGlobalScope": false
+      },
       "../src/user/user.module.ts": {
-        "version": "2e4bb263303f8347a45a421520fa075e953c7a61c79b26779e95e7f6c536036e",
+        "version": "272c209f4297e6796ee1c5e65333b72c9af4d7223d9c7f5576bd2bc1286acdad",
         "signature": "9e36626cb39f17790cf2403e2e54d8a74542da63e2a49aba7061133a1af26dcd",
         "affectsGlobalScope": false
       },
@@ -7471,6 +7476,12 @@
         "../src/user/dto/user.dto.ts",
         "../src/user/service/user/user.service.ts"
       ],
+      "../src/user/controller/userfilter/userfilter.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/user/dto/filter-user.dto.ts",
+        "../src/user/dto/user.dto.ts",
+        "../src/user/service/user/user.service.ts"
+      ],
       "../src/user/dto/filter-user.dto.ts": [
         "../node_modules/class-validator/types/index.d.ts"
       ],
@@ -7492,6 +7503,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/user/controller/user.controller.ts",
+        "../src/user/controller/userfilter/userfilter.controller.ts",
         "../src/user/entity/user.entity.ts",
         "../src/user/service/user/user.service.ts"
       ]
@@ -10631,6 +10643,11 @@
       ],
       "../src/user/controller/user.controller.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/user/dto/user.dto.ts",
+        "../src/user/service/user/user.service.ts"
+      ],
+      "../src/user/controller/userfilter/userfilter.controller.ts": [
+        "../src/user/dto/filter-user.dto.ts",
         "../src/user/dto/user.dto.ts",
         "../src/user/service/user/user.service.ts"
       ],
