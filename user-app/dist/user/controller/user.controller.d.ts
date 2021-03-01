@@ -3,7 +3,7 @@ import { UserDto } from '../dto/user.dto';
 export declare class UserController {
     private usersService;
     constructor(usersService: UserService);
-    create(user: UserDto): Promise<UserDto>;
+    create(res: any, user: UserDto): Promise<UserDto>;
     findAll(): Promise<UserDto[]>;
     findOne(id: number): Promise<UserDto>;
     filterAll(userFilter: any): Promise<UserDto[]>;

@@ -38,6 +38,14 @@ export class UserService {
         return this.userRepository.findOne({ id });
     }
 
+    async getByTcNo(tcno: string): Promise<number>{
+        return this.userRepository.count({ tcno: tcno})
+    }
+
+    async getByEmail(email: string): Promise<number>{
+        return this.userRepository.count({ email: email})
+    }
+
     update(id: number, user: UserDto): Promise<UpdateResult>{
         return this.userRepository.update(id, user); // or return this.userRepository.update(id, { surname: user.surname, name: user.name, tcno: user.tcno, email: user.email });
     }

@@ -45,6 +45,12 @@ let UserService = class UserService {
     getById(id) {
         return this.userRepository.findOne({ id });
     }
+    async getByTcNo(tcno) {
+        return this.userRepository.count({ tcno: tcno });
+    }
+    async getByEmail(email) {
+        return this.userRepository.count({ email: email });
+    }
     update(id, user) {
         return this.userRepository.update(id, user);
     }

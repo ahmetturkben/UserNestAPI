@@ -21,7 +21,19 @@ let UserController = class UserController {
     constructor(usersService) {
         this.usersService = usersService;
     }
-    create(user) {
+    async create(res, user) {
+        let userCount = await this.usersService.getByTcNo(user.tcno);
+        if (userCount > 0)
+            throw new common_1.ConflictException({
+                status: common_1.HttpStatus.CONFLICT,
+                message: "Tc no kayıtlı."
+            });
+        userCount = await this.usersService.getByEmail(user.email);
+        if (userCount > 0)
+            throw new common_1.ConflictException({
+                status: common_1.HttpStatus.CONFLICT,
+                message: "Email kayıtlı."
+            });
         return this.usersService.create(user);
     }
     findAll() {
@@ -47,9 +59,9 @@ let UserController = class UserController {
 };
 __decorate([
     common_1.Post(),
-    __param(0, common_1.Body()),
+    __param(0, common_1.Res()), __param(1, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [user_dto_1.UserDto]),
+    __metadata("design:paramtypes", [Object, user_dto_1.UserDto]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "create", null);
 __decorate([

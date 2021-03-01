@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put, Param, Delete } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Param, Delete, Res, HttpStatus, ConflictException } from '@nestjs/common';
 import { UserService } from '../service/user/user.service';
 import { UserDto } from '../dto/user.dto'; //src/user/dto/user.dto  path leri böyle vermemeliyiz. unit testlerimizgibi  fail alabiliriz.
 import { FilterUserDto } from '../dto/filter-user.dto';
@@ -9,7 +9,21 @@ export class UserController {
     constructor(private usersService: UserService){}
 
     @Post()
-    create(@Body() user: UserDto): Promise<UserDto>{
+    async create(@Res() res, @Body() user: UserDto): Promise<UserDto>{
+        let userCount = await this.usersService.getByTcNo(user.tcno);
+        if(userCount > 0)
+            throw new ConflictException({
+                status: HttpStatus.CONFLICT,
+                message: "Tc no kayıtlı."
+            });
+
+        userCount = await this.usersService.getByEmail(user.email);
+        if(userCount > 0)
+            throw new ConflictException({
+                status: HttpStatus.CONFLICT,
+                message: "Email kayıtlı."
+            });
+
         return this.usersService.create(user);
     }
 

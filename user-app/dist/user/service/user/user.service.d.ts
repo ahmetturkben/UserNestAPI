@@ -9,6 +9,8 @@ export declare class UserService {
     getAll(): Promise<UserDto[]>;
     filterAll(user: FilterUserDto): Promise<UserDto[]>;
     getById(id: number): Promise<UserDto>;
+    getByTcNo(tcno: string): Promise<number>;
+    getByEmail(email: string): Promise<number>;
     update(id: number, user: UserDto): Promise<UpdateResult>;
     delete(id: number): Promise<DeleteResult>;
 }
