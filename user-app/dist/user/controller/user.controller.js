@@ -16,7 +16,6 @@ exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
 const user_service_1 = require("../service/user/user.service");
 const user_dto_1 = require("../dto/user.dto");
-const filter_user_dto_1 = require("../dto/filter-user.dto");
 let UserController = class UserController {
     constructor(usersService) {
         this.usersService = usersService;
@@ -41,14 +40,6 @@ let UserController = class UserController {
     }
     findOne(id) {
         return this.usersService.getById(id);
-    }
-    filterAll(userFilter) {
-        var obj = new filter_user_dto_1.FilterUserDto();
-        obj.emails = userFilter.emails.split(',');
-        obj.names = userFilter.names.split(',');
-        obj.surnames = userFilter.surnames.split(',');
-        obj.tcnos = userFilter.tcnos.split(',');
-        return this.usersService.filterAll(obj);
     }
     update(id, userDto) {
         return this.usersService.update(id, userDto);
@@ -77,13 +68,6 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findOne", null);
-__decorate([
-    common_1.Get('/filter/:names/:surnames/:emails/:tcnos'),
-    __param(0, common_1.Param()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], UserController.prototype, "filterAll", null);
 __decorate([
     common_1.Put(':id'),
     __param(0, common_1.Param('id')), __param(1, common_1.Body()),

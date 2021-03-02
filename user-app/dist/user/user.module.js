@@ -12,7 +12,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const user_controller_1 = require("./controller/user.controller");
 const user_service_1 = require("./service/user/user.service");
 const user_entity_1 = require("./entity/user.entity");
-const userfilter_controller_1 = require("./controller/userfilter/userfilter.controller");
+const userfilter_controller_1 = require("./controller/userfilter.controller");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([

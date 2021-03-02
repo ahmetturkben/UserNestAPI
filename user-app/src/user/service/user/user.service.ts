@@ -21,8 +21,6 @@ export class UserService {
     }
 
     filterAll(user: FilterUserDto): Promise<UserDto[]>{
-        console.log(user);
-        console.log(user.names);
         var result = this.userRepository.find({
             where: [
               { name: Raw(alias =>`${alias} IN (:...name)`, { name: user.names })},
@@ -31,8 +29,7 @@ export class UserService {
               { tcno: Raw(alias =>`${alias} IN (:...tcno)`, { tcno: user.tcnos })}
             ]
           });
-          console.log(result)
-          return result;
+        return result;
     }
 
     getById(id: number): Promise<UserDto> {
